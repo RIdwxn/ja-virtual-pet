@@ -7,12 +7,15 @@ public class PetNeeds {
     private int exhaustion;
     private int dirtiness;
 
+
     
     
 
     public PetNeeds(){
 
     }
+
+    
 
     public void setHunger(int hungerLevel){
         ///setter
