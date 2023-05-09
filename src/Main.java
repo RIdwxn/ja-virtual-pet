@@ -7,22 +7,22 @@ public class Main {
         Random rand = new Random();
        // petNeeds.setName("fluffy");
 
-       petNeeds.setHunger(rand.nextInt(100+1));
-       petNeeds.setDirtiness(rand.nextInt(100+1));
-       petNeeds.setExhaustion(rand.nextInt(100+1));
-       petNeeds.setLoneliness(rand.nextInt(100+1));
-       petNeeds.setThirst(rand.nextInt(100+1));
+       petNeeds.setHunger(rand.nextInt(5, 100+1));
+       petNeeds.setDirtiness(rand.nextInt(5, 100+1));
+       petNeeds.setExhaustion(rand.nextInt(5, 100+1));
+       petNeeds.setLoneliness(rand.nextInt(5, 100+1));
+       petNeeds.setThirst(rand.nextInt(5, 100+1));
         
 
         System.out.println("Welcome to your virtual pet, would you like to get started? Type yes"+
-        " get started or no to end");
+        " to get started or no to end");
 
         String start = scan.nextLine(); 
 
         System.out.println("Name your pet:");
             String name = scan.nextLine();
 
-        if(start.equalsIgnoreCase("yes"))
+        while(start.equalsIgnoreCase("yes"))
         {
             
 
@@ -35,6 +35,8 @@ public class Main {
             System.out.println("Your pet's exhaustion is at " + petNeeds.getExhaustion());
             System.out.println("Your pet's loneliness is at " + petNeeds.getLoneliness());
             System.out.println("Your pet's thirst is at " + petNeeds.getThirst());
+
+            petNeeds.decay();
 
             if(petNeeds.getHunger() < 50)
             {
@@ -83,6 +85,34 @@ public class Main {
                 System.out.println("              {_:Y:.}_//");
                 System.out.println("     ---------{_}^-'{_}----------");
 
+            }
+
+            System.out.println("Would you like to continue?");
+
+            start = scan.nextLine();
+
+            System.out.println("Would you like to feed you pet?"
+            + "Your options are: feed, wash, hydrate, sleep");
+            String option = scan.nextLine();
+            if(option.equalsIgnoreCase("feed"))
+            {
+                petNeeds.feed();
+            }
+            else if(option.equalsIgnoreCase("wash"))
+            {
+                petNeeds.wash();
+            }
+            else if(option.equalsIgnoreCase("hydrate"))
+            {
+                petNeeds.hydrate();
+            }
+            else if(option.equalsIgnoreCase("sleep"))
+            {
+                petNeeds.sleep();
+            }
+            else if(option.equalsIgnoreCase("play"))
+            {
+                petNeeds.play();
             }
 
             

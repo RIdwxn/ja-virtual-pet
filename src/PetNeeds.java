@@ -51,6 +51,15 @@ public class PetNeeds {
         this.loneliness = loneliness;
     }
 
+    public void decay(){
+        loneliness -= 1;
+        thirst -= 1;
+        exhaustion -= 1;
+        dirtiness -= 1;
+        hunger -= 1;
+
+    }
+
     public int getExhaustion() {
         return this.exhaustion;
     }
@@ -65,5 +74,27 @@ public class PetNeeds {
 
     public void setDirtiness(int dirtiness) {
         this.dirtiness = dirtiness;
+    }
+
+    public void feed(){
+        hunger += 5;
+    }
+
+    public void wash(){
+        dirtiness +=5;
+    }
+
+    public void hydrate()
+    {
+        dirtiness += 5;
+    }
+
+    public void sleep()
+    {
+        exhaustion += 5;
+    }
+
+    public void play(){
+        loneliness += 5;
     }
 }
